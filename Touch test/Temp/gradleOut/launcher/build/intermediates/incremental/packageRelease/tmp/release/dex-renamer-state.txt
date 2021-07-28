@@ -1,0 +1,4 @@
+#Wed Jul 28 23:48:19 BST 2021
+base.0=E\:\\UnityProject\\Touch test\\Temp\\gradleOut\\launcher\\build\\intermediates\\dex\\release\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
