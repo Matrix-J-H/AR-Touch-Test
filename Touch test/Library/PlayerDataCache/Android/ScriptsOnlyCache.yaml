@@ -1,8 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CalibrateMap
+    - OverlapWFC
     - SelectionController
     - TouchRotate
+    - Training
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.EnhancedTouch.TouchSimulation
     - UnityEngine.InputSystem.InputSettings
@@ -16,6 +19,9 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.ARFoundation.ARCameraBackground
     - UnityEngine.XR.ARFoundation.ARCameraManager
     - UnityEngine.XR.ARFoundation.ARInputManager
+    - UnityEngine.XR.ARFoundation.ARPlane
+    - UnityEngine.XR.ARFoundation.ARPlaneManager
+    - UnityEngine.XR.ARFoundation.ARPlaneMeshVisualizer
     - UnityEngine.XR.ARFoundation.ARRaycastManager
     - UnityEngine.XR.ARFoundation.ARSession
     - UnityEngine.XR.ARFoundation.ARSessionOrigin
@@ -58,6 +64,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 89
@@ -67,24 +75,38 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11610}
+      Script: {instanceID: 11614}
     - Class: 114
-      Script: {instanceID: 12038}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 13190}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 13442}
+      Script: {instanceID: 12112}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 12472}
     - Class: 114
-      Script: {instanceID: 13642}
+      Script: {instanceID: 12664}
     - Class: 114
-      Script: {instanceID: 13838}
+      Script: {instanceID: 12682}
     - Class: 114
-      Script: {instanceID: 13964}
+      Script: {instanceID: 13204}
     - Class: 114
-      Script: {instanceID: 14000}
+      Script: {instanceID: 13456}
+    - Class: 114
+      Script: {instanceID: 13638}
+    - Class: 114
+      Script: {instanceID: 13656}
+    - Class: 114
+      Script: {instanceID: 13854}
+    - Class: 114
+      Script: {instanceID: 13980}
+    - Class: 114
+      Script: {instanceID: 14016}
+    - Class: 114
+      Script: {instanceID: 58744}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -471,10 +493,28 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 7ae79b68fa520d4feb86ec728fff382a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SimpleTiledWFC
+  - hash:
+      serializedVersion: 2
+      Hash: 1f5c3704bbbffb4d859577b7ed0acd9c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OverlapWFC
+  - hash:
+      serializedVersion: 2
       Hash: bfeb96683d3796cadaab890bfdfe92be
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
     className: InputDebuggerWindow
+  - hash:
+      serializedVersion: 2
+      Hash: 6701892b001d13cbe85378660ac8a2d0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Training
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -735,6 +775,12 @@ ScriptsOnlyBuild:
     className: SwingArmModel
   - hash:
       serializedVersion: 2
+      Hash: 9463cf9660eafd216a687babd3942544
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TilePainter
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -901,7 +947,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 4dd643863fcf28f1c9d75d237953ceb4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CalibrateMap
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: E:/UnityProject/Touch test/Builds/thirdTouchTest.apk
+  playerPath: E:/UnityProject/Touch test/Builds/fifthTouchTest.apk

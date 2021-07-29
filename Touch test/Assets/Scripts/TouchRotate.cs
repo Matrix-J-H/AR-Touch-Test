@@ -49,7 +49,7 @@ public class TouchRotate : MonoBehaviour
             if(touch.phase == TouchPhase.Moved)
             {
                 float x = touch.deltaPosition.x * rotationSpeed * Time.fixedDeltaTime;
-                rb.AddTorque(Vector3.down * x);
+                rb.AddTorque(Vector3.down * x); //maybe need Vector3.right
             }
         }
     }
