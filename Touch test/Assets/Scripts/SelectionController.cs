@@ -5,7 +5,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 //using UnityEngine.UI;
 
-//[RequireComponent(typeof(ARRaycastManager))]
+[RequireComponent(typeof(ARRaycastManager))]
 public class SelectionController : MonoBehaviour
 {   
     [SerializeField] private Camera arCamera;
