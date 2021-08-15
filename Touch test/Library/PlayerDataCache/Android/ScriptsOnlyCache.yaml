@@ -1,9 +1,12 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - FixedJoystick
     - MainMenu
     - OverlapWFC
+    - PlayerController
     - SelectionController
+    - SpawnPlayer
     - TouchRotate
     - Training
     Unity.InputSystem.dll:
@@ -20,6 +23,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.XR.ARCore.Editor.dll:
+    - UnityEditor.XR.ARCore.ARCoreSettings
     Unity.XR.ARCore.dll:
     - UnityEngine.XR.ARCore.ARCoreLoader
     Unity.XR.ARFoundation.dll:
@@ -29,6 +34,7 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.ARFoundation.ARPlane
     - UnityEngine.XR.ARFoundation.ARPlaneManager
     - UnityEngine.XR.ARFoundation.ARPlaneMeshVisualizer
+    - UnityEngine.XR.ARFoundation.ARPointCloudManager
     - UnityEngine.XR.ARFoundation.ARRaycastManager
     - UnityEngine.XR.ARFoundation.ARSession
     - UnityEngine.XR.ARFoundation.ARSessionOrigin
@@ -90,49 +96,57 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11294}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11536}
     - Class: 114
-      Script: {instanceID: 11614}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 11802}
+      Script: {instanceID: 11644}
     - Class: 114
-      Script: {instanceID: 12042}
+      Script: {instanceID: 11832}
     - Class: 114
-      Script: {instanceID: 12112}
+      Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 12142}
     - Class: 114
-      Script: {instanceID: 12472}
+      Script: {instanceID: 12214}
     - Class: 114
-      Script: {instanceID: 12664}
+      Script: {instanceID: 12502}
     - Class: 114
-      Script: {instanceID: 12682}
+      Script: {instanceID: 12694}
     - Class: 114
-      Script: {instanceID: 12880}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13204}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 13456}
+      Script: {instanceID: 13234}
     - Class: 114
-      Script: {instanceID: 13610}
+      Script: {instanceID: 13486}
     - Class: 114
-      Script: {instanceID: 13638}
+      Script: {instanceID: 13584}
     - Class: 114
-      Script: {instanceID: 13656}
+      Script: {instanceID: 13640}
     - Class: 114
-      Script: {instanceID: 13854}
+      Script: {instanceID: 13668}
     - Class: 114
-      Script: {instanceID: 13982}
+      Script: {instanceID: 13686}
     - Class: 114
-      Script: {instanceID: 14018}
+      Script: {instanceID: 13706}
     - Class: 114
-      Script: {instanceID: 14152}
+      Script: {instanceID: 13886}
     - Class: 114
-      Script: {instanceID: 22322}
+      Script: {instanceID: 14014}
+    - Class: 114
+      Script: {instanceID: 14050}
+    - Class: 114
+      Script: {instanceID: 14158}
+    - Class: 114
+      Script: {instanceID: 14186}
+    - Class: 114
+      Script: {instanceID: 35722}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -152,6 +166,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 362
       Script: {instanceID: 0}
     Assets/Scenes/MainMenu.unity:
     - Class: 1
@@ -177,31 +193,31 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11266}
+      Script: {instanceID: 11294}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 12230}
+      Script: {instanceID: 12214}
     - Class: 114
-      Script: {instanceID: 12880}
+      Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 13222}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13252}
     - Class: 114
-      Script: {instanceID: 13526}
+      Script: {instanceID: 13270}
     - Class: 114
-      Script: {instanceID: 13610}
+      Script: {instanceID: 13556}
     - Class: 114
-      Script: {instanceID: 13836}
+      Script: {instanceID: 13640}
     - Class: 114
-      Script: {instanceID: 13998}
+      Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 14152}
+      Script: {instanceID: 14030}
     - Class: 114
-      Script: {instanceID: 22322}
+      Script: {instanceID: 14186}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -233,6 +249,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainMenu
   - hash:
       serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
@@ -865,10 +887,16 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 4a7f800e03362783afdef7332397b675
+      Hash: 3ad68af7fd59d074a30572df909f3cf0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SelectionController
+  - hash:
+      serializedVersion: 2
+      Hash: 417d248ea6bfec85ee044a29e79cd84f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1003,6 +1031,12 @@ ScriptsOnlyBuild:
     className: XRManagerSettings
   - hash:
       serializedVersion: 2
+      Hash: d1f07c9e64b7817e6271f80bb03de25f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnPlayer
+  - hash:
+      serializedVersion: 2
       Hash: 9726bc46e15d44429bd38fb013657f1e
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
@@ -1063,12 +1097,48 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: ce669872a2be11bc686ea22961d8a3bb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: MainMenu
+    className: Joystick
+  - hash:
+      serializedVersion: 2
+      Hash: 9e27f44bbf48228f203a37254d40f8ae
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: JoystickSetterExample
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloatingJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: 824e8d4cb47ffd88ddf959dbd4526585
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DynamicJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixedJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: 528e9858840cb8370d93939fff6b42d9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: JoystickPlayerExample
+  - hash:
+      serializedVersion: 2
+      Hash: 9dac16f3efc511835ac976dfae55f580
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VariableJoystick
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/MainGame.unity
-  playerPath: E:/UnityProject/Touch test/Builds/sixthTouchTest.apk
+  playerPath: E:/UnityProject/Touch test/Builds/eighthTouchTest.apk

@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainGame.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
+    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 0b3ecf3538d165a4693930361c72facf,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2ed0bf529e01b954f9282315d74d9189,
       type: 2}

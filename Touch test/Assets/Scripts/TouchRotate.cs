@@ -17,40 +17,15 @@ public class TouchRotate : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    private void OnMouseDrag() 
-    {
-        dragging = true;
-    }    
-
     // Update is called once per frame
-    void Update()
+    public void rotateObject(Touch touch)
     {   
-        /*
-        if(Input.GetMouseButtonDown(0))
-        {
-            OnMouseDrag();
-        }
-        */
-        if(Input.GetMouseButtonUp(0))
-        {
-            dragging = false;
-        }
-        //Debug.Log(Input.GetAxis("Mouse X"));
+        touchPosition = Utils.ScreenToWorld(mainCamera, touch.position);
 
-    }
-    
-    public void rotateObject()
-    {
-        if(Input.touchCount > 0)
-        {   
-            Touch touch = Input.GetTouch(0);
-            touchPosition = Utils.ScreenToWorld(mainCamera, touch.position);
-
-            if(touch.phase == TouchPhase.Moved)
-            {
-                float x = touch.deltaPosition.x * rotationSpeed * Time.fixedDeltaTime;
-                rb.AddTorque(Vector3.down * x); //maybe need Vector3.right
-            }
+        if(touch.phase == TouchPhase.Moved)
+        {
+            float x = Mathf.Max(touch.deltaPosition.x, touch.deltaPosition.y) * rotationSpeed * Time.fixedDeltaTime;
+            rb.AddTorque(Vector3.down * x); //maybe need Vector3.right
         }
     }
 }
