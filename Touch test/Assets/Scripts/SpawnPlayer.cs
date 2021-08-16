@@ -5,10 +5,16 @@ using UnityEngine;
 public class SpawnPlayer : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject playerPrefab;
+    public GameObject thePlayer;
 
-    public void Start() 
+    private void Start() 
     {   
-        Instantiate(playerPrefab, transform.position + Vector3.up, Quaternion.identity);
+        firstSpawn();
+    }
+
+    public void firstSpawn()
+    {
+        Transform playerTransform = thePlayer.GetComponent<Transform>();
+        playerTransform.position = transform.position + Vector3.up * 0.02f;
     }
 }

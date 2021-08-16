@@ -15,7 +15,7 @@ public class SelectionController : MonoBehaviour
     
     float beganTime, endTime;
 
-    private Vector2 touchPosition;
+    //private Vector2 touchPosition;
     private ARRaycastManager arRaycastManager;
     private static List<ARRaycastHit> hitList = new List<ARRaycastHit>();
 
@@ -33,7 +33,7 @@ public class SelectionController : MonoBehaviour
         if(Input.touchCount > 0)
         {   
             Touch touch = Input.GetTouch(0);
-            touchPosition = Utils.ScreenToWorld(arCamera, touch.position);
+            //touchPosition = Utils.ScreenToWorld(arCamera, touch.position);
             Ray ray = arCamera.ScreenPointToRay(touch.position);
             RaycastHit hitObject;
 
