@@ -16,8 +16,8 @@ public class GenerateRewards : MonoBehaviour
     {   
         if(!hasCalled)
         {
-            grandChild = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
-            //planeCount = transform.childCount;
+            grandChild = this.gameObject.transform.GetChild(0).GetChild(0).gameObject; //get the child of the child gameObject of the attached object
+            
             RandomDrop();
             hasCalled = true;
         }
@@ -26,12 +26,12 @@ public class GenerateRewards : MonoBehaviour
 
     private void RandomDrop()
     {
-        foreach(Transform planeTransform in grandChild.transform)
+        foreach(Transform planeTransform in grandChild.transform) //iterate through each plane in the grand child
         {
-            int randomNum = random.Next(0,3);
+            int randomNum = random.Next(0,3); //generate random integer
             
-            if(randomNum == 2)
-            {
+            if(randomNum == 2) //2 over 3 chance of having a Pickup Rewards on the plane
+            {   
                 Instantiate(Rewards, planeTransform.position + Vector3.up * 0.02f, Rewards.transform.rotation);
             }
         }

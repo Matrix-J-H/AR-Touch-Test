@@ -27,14 +27,14 @@ public class LevelManager : MonoBehaviour
     {
         switch(other.gameObject.tag)
         {
-            case "Goal":
+            case "Goal": //upon reach the goal
                 StartGoalSequence();
                 break;
-            case "Trap":
+            case "Trap": //upon falling out of the map
                 Restart();
                 GetComponent<PlayerController>().enabled = true;
                 break;
-            case "PickUp":
+            case "PickUp": //upon pick up a Reward
                 other.gameObject.SetActive(false);
                 count++;
                 SetScoreText();
@@ -45,22 +45,21 @@ public class LevelManager : MonoBehaviour
     void StartGoalSequence()
     {   
         SetWinMessage();
-        GetComponent<PlayerController>().enabled = false;
+        GetComponent<PlayerController>().enabled = false; //Disable the controller
         TimerController timerController = TimeCounter.GetComponent<TimerController>();
-        timerController.EndTimer();
-        //Invoke("ReloadLevel", 1f);
+        timerController.EndTimer(); //Stop the timer
     }
 
     private void Restart()
     {   
         GetComponent<PlayerController>().enabled = false;
-        startPoint.GetComponent<SpawnPlayer>().firstSpawn();
+        startPoint.GetComponent<SpawnPlayer>().firstSpawn(); //spwan function from SpawnPlayer script
     }
 
     public void ReloadLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        SceneManager.LoadScene(currentSceneIndex); //reload the current scene
     }
 
     private void SetScoreText()

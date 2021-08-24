@@ -20,12 +20,11 @@ public class PlayerController : MonoBehaviour
         mainCamera = Camera.main;
         rb = this.GetComponent<Rigidbody>();
         radius = this.GetComponent<SphereCollider>().radius;
-        //y = transform.position.y;
     }
 
     void OnCollisionStay()
     {
-        isGrounded = true;
+        isGrounded = true; // true if player is collided with the ground
     }
 
     // Update is called once per frame
@@ -38,8 +37,7 @@ public class PlayerController : MonoBehaviour
     {   
         if(isGrounded)
         {
-            //Vector3 direction = targetPosition - transform.position;
-            Vector3 direction = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
+            Vector3 direction = new Vector3(joystick.Horizontal, 0f, joystick.Vertical); // the bind direction of movement to the joystick
             rb.MovePosition(transform.position + (direction * rollSpeed * Time.deltaTime));
         }
     }
